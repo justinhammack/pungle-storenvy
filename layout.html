@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <title>{{ store.name }} | {{ page.name }} | Online Store</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="en-us" />
+    <meta name="description" content="{{page.description}} - Online Store"/>
+    <link href="/products.rss" rel="alternate" title="Product RSS Feed" type="application/rss+xml" />
+    <meta name="keywords" content="{{page.keywords}}" />   
+    
+    <link href="{{ theme | theme_css_url }}" media="all" rel="stylesheet" type="text/css"/>
+    {% if theme.background_image != blank %}
+      <style type="text/css" media="screen">
+      body {
+        background-image:url({{ theme.background.url }});
+      }
+      </style>
+    {% endif %}
+    
+    
+    <!-- pungle.me start -->
+    <meta property="fb:app_id" content="165594710139069">
+    <link rel="stylesheet" href="http://pungle.me/core/style.css">
+    <link rel="shortcut icon" href="http://pungle.me/anvil_favicon.png" />    
+    <link rel="apple-touch-icon" href="http://pungle.me/anvil_favicon.png"/>
+    <!-- pungle.me end -->
+    
+    
+    <!-- pungle custom css - because this store doesn't support nav tags, DAMNIT -->
+    <style type="text/css">      
+      
+        body {
+            background: #E1E2DA url('http://c28536.r36.cf1.rackcdn.com/bg-tile.png') top left fixed repeat;
+        }
+        
+      /* Navigation Setup */
+      #navPU { background-color:#333; display:block; position: absolute; right: 52px; bottom: 0px;
+      	  -moz-border-radius-topright: 6px; border-top-right-radius: 6px; -moz-border-radius-topleft: 6px; border-top-left-radius: 6px; }
+      #navPU ul, #navPU li { margin: 0; } 
+      #navPU ul li { float:left; padding: 5px 5px;  border-right: 1px solid #222;}
+      #navPU ul li:last-child { border-right: none; }
+      #navPU ul li a, #navPU ul li a:active, #navPU ul li a:visited { display:block; padding:3px 8px; color: #DDD;}
+      #navPU ul li a:hover, #navPU ul li.active a { 
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          background-color:#222;
+          box-shadow:1px 1px 2px #444;
+          color:#f0b02a;    
+      }
+      #navPU ul.navigation li { position: relative; }
+      #navPU ul.navigation li ul {
+          /* background: #5c5449 url(images/global/dd_top_border.png) no-repeat 0 0; */
+          top: 34px;
+          left: 0px;
+          position: absolute;
+          width: 182px;
+          margin-top: 6px;
+          padding: 1px;    
+          background-color:#222;    
+          -moz-border-radius-bottomright: 5px; border-bottom-right-radius: 5px; -moz-border-radius-bottomleft: 5px; border-bottom-left-radius: 5px;
+          z-index: 10000;
+          display: none;
+      }
+      #navPU ul.navigation li:hover ul { display: block; }
+      /* #navPU ul.navigation li:hover a { color: #f0b02a; } */
+      #navPU ul.navigation li ul li {
+          border-bottom: 1px solid #333;
+          background-color:#222;
+          padding: 3px 4px;
+          width: 174px;
+          text-align:left;   
+      }
+      #navPU ul.navigation li:last-child { border-bottom: none; }
+      #navPU ul.navigation li ul li a {
+          display: block;
+          width: 146px;
+          background-color:#222;
+          line-height: 16px;
+          font-size: 12px;
+          padding: 3px 13px;
+          color: #DDD;
+          border: 1px solid transparent;
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          box-shadow: none;
+      }
+      #navPU ul.navigation li ul li a:hover {
+          background: #000;    
+          color:#f0b02a;
+      }
+      #navPU ul li a.navSelected {
+          -moz-border-radius: 5px;
+          -webkit-border-radius: 5px;
+          border-radius: 5px;
+          background-color:#222;
+          box-shadow:1px 1px 2px #444;    
+      }
+      #navPU ul.navigation li ul li a.subSelected { background-color:#000; }      
+      
+      #wrapper {padding-top: 20px; padding-bottom: 80px;}
+      
+      #subheader .ui-icon, #allStores .ui-icon, #footerPU .ui-icon { 
+    		display: inline-block;
+    		vertical-align: text-bottom;
+    		cursor: pointer;
+    		margin-left: 10px;
+    	}
+	
+      #footerPU, #footerPU a, #footerPU a:active, #footerPU a:visited {color: #888;}
+      #subheader a:hover, #footerPU a:hover { color:#f0b02a; }
+      #content, #footerPU {
+      	background: none; 
+        position: relative;
+      	margin: 0 auto;
+      	padding: 10px 0px; 
+      	width: 960px;
+      }
+
+      #footerPU {padding: 0;}
+      
+      .cartPU {
+        padding: 4px;        
+        background-color: #FFFFFF;
+        border: 1px solid #6D6D6D;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+        position: absolute;
+		    right: 15px;
+		    top: 15px;
+      }
+      
+      a:visited { outline: none; color: #666; text-decoration: none; }
+      
+      #container {
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -moz-box-shadow: 0 0 5px #888;
+        -webkit-box-shadow: 0 0 5px#888;
+        box-shadow: 0 0 5px #888;
+        border-radius: 5px;
+        margin-top: 38px;
+        position: relative;
+        overflow: visible;
+      }
+      
+      .stock_bar p { margin: 0; }
+      #main ul { margin-left: 0; }
+      
+      #freeShipping {
+	        background: url('http://c28536.r36.cf1.rackcdn.com/PU_freeshipping276x55.png') 0 0;
+	        display: block;
+	        height: 55px;
+	        width: 276px;
+	        position: absolute;
+	        top: 6px;
+	        right: 60px;
+	        text-indent: -999999px;	        
+	    }
+	    
+	    #PercentOff {
+	        background: url('http://c28536.r36.cf1.rackcdn.com/PU10percentoff.png') 0 0;
+	        display: block;
+	        height: 35px;
+	        width: 150px;
+	        position: absolute;
+	        top: -35px;
+	        left: 35px;
+	        text-indent: -999999px;	        
+	    }
+	    
+      </style>
+    <!-- END pungle custom css -->
+    
+    {{ head_content }}
+  </head>
+  <body id="{{ page.permalink }}-page" class="{{ page.permalink }} {{ page.category }}">
+    
+    <div id="wrapper">
+      
+        <a style="float:left;" href="http://pungle.storenvy.com/" title="Back to store home."><img src="http://c28536.r36.cf1.rackcdn.com/buy_pungle_logo.png"></a>
+        <a style="float:right;" href="http://pungle.me" title="Check out pungle.me!"><img src="http://c28536.r36.cf1.rackcdn.com/back_pungle_logo_blog_3.png"></a>
+        
+        <div class="clearfix"></div>
+      
+      <div id="container">
+        <a id="PercentOff" href="http://www.facebook.com/pungleDOTorg?sk=app_335383991105" target="_blank" title="Get 10% off code on Facebook!">Get your 10% Off Code</a>
+        <!-- <ul id="nav">          
+          {% for nav_item in collections.all %}
+          <li id="collection_{{nav_item.id}}_link" {% if nav_item == collection %} class="current" {% endif %}>
+            <a href="{{nav_item.url}}">
+              {{ nav_item.name }}
+              <span class="collection_count">({{ nav_item.product_count }})</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul> -->          
+        <div id="content">
+          <p class="right cartPU" id="items_in_cart" style="background-image: none;"><a href="http://www.storenvy.com/cart"><img width="22" height="18" src="/images/icons/icon_cart_white.png"></a></p>
+          <div id="freeShipping" alt="Free shipping on all domestic (US) orders!">Free shipping!</div>
+          <h2 id="title">{{ page.name }}</h2>
+          <div id="sidebar">
+            <!-- {% if store.avatar_url != blank %}
+            <div id="avatar">
+              <img src="{{store.avatar_url}}" width="180" height ="180" alt="store.name"/>
+            </div>
+            {% endif %}
+            {% if store.location != blank %}
+            <h5 id="location">{{ store.location }}</h5>
+            {% endif %}
+            <hr /> -->
+            <!-- {% if store.places != blank  %}
+            <h6>Places</h6>                     
+            <ul id="places">
+              {% for place in store.places %}
+              <li><a href="{{place.url}}">{{ place.name }}</a></li>
+              {% endfor %}
+            </ul>
+            <hr />
+            {% endif %} -->
+            {% if store.description != blank %}
+            <h6>Hey buddy..</h6>
+            <p id="description">
+              {{ store.description }}
+            </p>
+            <hr />
+            {% endif %}
+            <div id="buttons">
+              {% for nav_item in collections.all %}<a href="{{nav_item.url}}" class="faqs">{{ nav_item.name }}</a>{% endfor %}
+              <a href="http://www.americanapparel.net/sizing/default.asp?c=5A5082&chart=mu.shirts" class="faqs" target="_blank" title="Sizing Chart (external)">Sizing Chart</a>
+              <a href="{{ pages.contact.url }}" class="contact_us">Contact</a>
+              <a href="{{ pages.faq.url }}" class="faqs">FAQ</a>              
+              <!-- <a href="http://pungle.me" class="faqs">http://pungle.me</a> -->
+              <!-- <a href="{{ store.profile_url }}" class="store_profile">Store Profile</a> -->
+            </div>  
+          </div><!-- end #sidebar -->
+          <div id="main">
+                  
+            {% if notice != blank %}
+              <div id="notice">
+                <p>{{ notice }}</p>
+              </div>
+            {% endif %}
+      
+            {% if error != blank %}
+              <div id="error">
+                <p>{{ error }}</p>
+              </div>
+            {% endif %}
+
+            {{ page_content}}
+          </div><!-- end #main-->
+        </div><!-- end #content -->
+        <div id="footer">
+          <!-- <a href="http://www.storenvy.com/" id="storenvy_powered">Powered by Storenvy</a> -->
+          <div id="footer_info">
+            <ul>
+              <li><a title="Contact us" href="/contact">Contact</a></li>
+              <li><a title="Frequently Asked Questions" href="/faq">Store Info</a></li>
+              <!-- <li><a title="Get help from Storenvy" href="http://www.storenvy.com/help">Help</a></li> -->
+            </ul>
+          </div><!-- end #footerPU_info -->
+        </div><!-- end footer -->
+        <div class="clearfix"></div>
+      </div><!-- end #container -->
+    </div><!-- end #wrapper -->
+    <div class="clearfix"></div>
+    
+    <div class="align_center"><small>Copyright 2011+ pungle.me</small></div>
+    <!-- pungle FOOTER start 
+    <div id="footer_wrapper">
+    <div id="footerPU" class="clearfix">
+        <div class="row">
+        	<div class="col col_3">
+          	<p class="align_center">
+          		<a class="fbButtonBig" href="http://www.facebook.com/pungleDOTorg" target="_blank" title="Connect with punglers on facebook.">Facebook</a>
+          		<a class="twButtonBig" href="http://twitter.com/JustinHammack" target="_blank" title="Follow our founder on Twitter.">Twitter</a>          		
+          		<a class="emButtonBig" href="mailto:contact@pungle.me" title="Email us!">Email</a>
+          	</p>
+        	</div>
+        	<div class="col col_2">
+        		<p><a class="anvilIcon" href="http://pungle.me/anvil/" title="Strike the anvil!">The Anvil</a></p>
+        	</div>
+        	<div class="col col_3">
+          	<p>
+          		<small>
+            		<a href="http://pungle.me/anvil/" title="The Anvil beckons you!"><b>The Anvil</b></a><br/><br/>         		
+					<a href="http://pungle.storenvy.com/" title="Shop for pungle swag & other fun loot!"><span class="ui-icon ui-icon-cart"></span> Store / Loot</a><br/><br/>
+          			<a href="http://pungle.me/anvil/tutorial/" title="Learn how to use the anvil in 5 easy steps."><span class="ui-icon ui-icon-lightbulb"></span> 5-Step Tutorial</a>
+          		</small>
+          	</p>
+        	</div>
+        	<div class="col col_3">
+          	<p>
+          		<small>
+            		<a href="http://pungle.me/social-good/" title="Learn more about our social good campaign."><b>Social Good</b></a><br/><br/>
+          			<a href="http://pungle.me/social-good/cause-portfolio/" title="See what Nonprofits we currently fund."><span class="ui-icon ui-icon-folder-open"></span> Cause Portfolio</a><br/><br/>
+            		<a href="http://pungle.me/social-good/goals-progress/" title="Check out our goals and track our progress."><span class="ui-icon ui-icon-image"></span> Goals & Progress</a>
+          		</small>
+          	</p>
+        	</div>
+        	<div class="col col_3">
+          	<p>
+          		<small>
+          			<a href="http://pungle.me/about-us/" title="Who are the people behind the scenes?"><b>About Us</b></a><br/><br/>
+            		<a href="http://pungle.me/anvil/faq/" title="Answers to some common questions."><span class="ui-icon ui-icon-help"></span> FAQ</a>
+          		</small>
+          	</p>
+        	</div>
+        	<div class="col col_2">
+          	<p>
+          		<small>
+          			<a href="http://pungle.me" title="Back to pungle time!"><span class="ui-icon ui-icon-home"></span> <b>Home</b></a><br/><br/>
+          		    <a href="http://blog.pungle.me" title="A piñata of awesome content!"><span class="ui-icon ui-icon-signal-diag"></span> <b>Blog</b></a>
+          		</small>
+          	</p>
+        	</div>
+        </div>  
+        <div class="row">
+        	<div class="col col_16 align_center">
+        		<small>
+        		    © 2010 - 2011 <a href="/" title="pungle time!">pungle</a>, all rights reserved.
+        		    <a href="http://pungle.me/about-us/terms-of-service/" title="Terms of Service"><span class="ui-icon ui-icon-script"></span> Terms of Service </a>
+        		    <a href="http://pungle.me/about-us/privacy-policy/" title="Privacy Policy"><span class="ui-icon ui-icon-locked"></span> Privacy Policy </a>        		            		    
+    		    </small>
+        	</div>
+        </div>
+    </div>
+    </div>
+     pungle FOOTER end -->
+    
+    <!-- asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet change the UA-XXXXX-X to be your site's ID -->
+    <script>
+        var _gaq = [['_setAccount', 'UA-10898547-10'], ['_trackPageview']];
+        (function(d, t) {
+            var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+            g.async = true;
+            g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s);
+        })(document, 'script');
+    </script>
+    
+    <!-- put this here because it can stall out like a fighter jet going vertical -->
+    <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=165594710139069&amp;xfbml=1"></script>
+	  <script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+	  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=pungle"></script>
+	  
+  </body>
+</html>

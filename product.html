@@ -1,0 +1,66 @@
+<!-- {% if product.tags != blank %}
+  <ul id="tags"> 
+    {% for tag in product.tags %}
+    <li class="tag">
+      <a href="{{tag.storenvy_search_url}}" title="Search Storenvy for {{tag.name}}.">{{ tag.name }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+{% endif %} -->
+<div id="product">
+  <div id="main_photo">
+    <a href="{{ product.photo.url }}"><img src="{{product.photo.large_url}}" alt="{{product.name | h}}" /></a>
+  </div>
+  <ul id="thumbs">
+    {% for photo in product.photos offset:1 %}
+    <li>
+      <a href="{{photo.url}}" class="product_thumb" {%if forloop.first %}id="first_thumb" {%endif%}>
+        <img src="{{photo.small_url}}" alt="{{product.name | h}} - Thumbnail {{forloop.index}}"/>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div><!-- end .product -->
+<div id="product_info">
+  <p><h2 class="align_center" style="padding-bottom: 10px;">{{ product.price | money_with_sign }}</h2></p>
+  <div id="add_notice" style="display:none;"></div>
+  <ul id="stock" style="margin-left: 0;">
+    {% for variant in product.variants %}
+    <li{% if forloop.last %} class="last"{% endif %}>
+      <div class="stock_bar" style="width:{{variant.percent_available}}%;{% if variant.quantity < 1 %}border:0; padding-top: 1px;{% endif %}">
+        <p>
+        {% if variant.name != 'Default' %}
+        {{ variant.name }}
+        {% else %}
+        Availability
+        {% endif %}
+        </p>
+      </div><!-- end .stock_bar -->
+      <div class="add">
+        {% if variant.quantity < 1 %}
+        <img src="/images/btn_sold_out.png" />
+        {% else %}
+        {{ variant | ajax_add_to_cart_button }}
+        {% endif %}
+      </div><!-- end .add -->
+    </li>
+    {% endfor %}
+  </ul><!-- end #stock -->
+  
+</div><!-- end .product_info -->
+<div class="clearfix"></div>
+{% if product.description != blank %}
+    <br/><h6>Description</h6>
+    <div id="product_description">{{ product.description | auto_link | paragraphs}}</div>
+  {% endif %}
+  
+  <h6>Share This</h6>
+  <div id="share_product">
+    {{ product | facebook_like_button }} <!-- Facebook Like Button -->
+    {{ product | tweet_button }} <!-- Twitter Share Button -->
+    
+    <hr/>
+
+    <!-- <a href="{{ product.profile_url }}" class="product_profile">Storenvy Product Profile</a> -->
+
+  </div>

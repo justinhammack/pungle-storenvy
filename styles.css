@@ -1,0 +1,63 @@
+/* The line below imports most of the styles for your chosen theme.
+It is recommended that you leave this in to receive bug fixes or additions 
+to this theme. */
+
+@import url('http://www.storenvy.com/themes/default/stylesheets/styles.css');
+
+/* The styles below are automatically turned into controls on the Design Bar.
+For more information, see the FAQ. */
+
+* {
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; /*: Font :*/
+}
+
+body {
+  color: #666666;                   /*: Body Font :*/
+  background-color: #FFFFFF;        /*: Body Background :*/
+  background-repeat: repeat;        /*: Background Image Repeat :*/
+  background-position: top center;  /*: Background Image Position :*/
+  background-attachment: scroll;    /*: Background Attachment :*/
+}                                   
+                                    
+#header {
+  text-align:center;                /*: Header Alignment :*/
+}                                   
+                                    
+#header h1 a {                      
+  color: #666666;                   /*: Store Name :*/
+}
+
+#nav, #container {
+  background-color: #CCCCCC;        /*: Store Border :*/
+}
+
+#nav li a {
+  color: #464646;                   /*: Navigation Links :*/
+}
+
+#nav li a:hover, #nav li.current a {
+  background-color: #656565;        /*: Navigation Hover Background :*/
+  color: #FFFFFF;                   /*: Navigation Hover Color :*/
+}
+
+h2#title {
+  color: #656565;                   /*: Page Title :*/
+  background-color: #FFFFFF;        /*: Page Title Background :*/
+}
+
+#content {
+  background-color: #FFFFFF;        /*: Middle Section Background :*/
+}
+
+div.description a:link,
+div.description a:visited {
+  color: #30AFEA;                   /*: Product Description Links :*/
+}
+
+#footer_info,
+#footer_info a:link,
+#footer_info a:visited {
+  color: #656565;                   /*: Footer Text :*/
+}
+
+#container{ overflow:hidden;width:960px;margin-bottom:0;padding:10px 10px 7px; background:#fff repeat-x; box-shadow: none; -moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;-webkit-border-bottom-left-radius:5px;-webkit-border-bottom-right-radius:5px;}

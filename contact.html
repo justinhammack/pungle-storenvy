@@ -1,0 +1,69 @@
+<fieldset>
+{% if contact.sent %}
+  <div id="request_received">
+    <h2>Thanks for getting in touch!</h2> 
+    <p>We will respond as soon as possible.</p>
+    <p>Sincerely,<br/>{{ store.name }}</p>
+  </div>
+{% else %}
+  <form id="contact-form" method="post" action ="/contact">
+    <ul>
+      <li>
+        <div class="label" id="first_label">
+          <label for="name">Name</label>
+        </div>
+        <div class="field" id="first_field">
+          {{ contact | contact_input: 'name'}}
+        </div>
+      </li>
+      <li>
+        <div class="label">
+          <label for="email">Email</label>
+        </div>
+        <div class="field">
+          {{ contact | contact_input: 'email'}}
+        </div>
+      </li>
+      <li>
+        <div class="label">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="field">
+          {{ contact | contact_input: 'phone'}}
+        </div>
+      </li>
+      <li>
+        <div class="label">
+          <label for="order_number">Order Number</label>
+        </div>
+        <div class="field">
+          {{ contact | contact_input: 'order_number'}}
+        </div>
+      </li>
+      <li>
+        <div class="label">
+          <label for="message">Your Message</label>
+        </div>
+        <div class="field">
+          {{ contact | contact_input: 'message'}}
+          <label class="instruction">Please provide all the information you possibly can.</label>
+        </div>
+      </li>
+      <li>
+        <div class="label">
+          <label for="captcha">Spam Protection (Captcha)</label>
+        </div>
+        <div class="field">
+          {{ contact.captcha }}<br/>
+          {{ contact | contact_input: 'captcha' }}
+        </div>
+      </li>
+      <li>
+        <div class="submit">
+          <input type="submit" value="Submit"  class="button" />
+        </div><!-- end .submit -->
+      </li>
+    </ul>
+  </form>
+{% endif %}
+</fieldset>

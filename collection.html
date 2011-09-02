@@ -1,0 +1,16 @@
+{% if products.current != blank %}
+  <ul>
+    {% for product in products.current %}
+    <li class="product" id="products_{{product.id}}">
+      <a href="{{product.url}}">
+        <img src="{{ product.image.medium_url }}" alt="{{product.name | h}}" />
+        <span class="product_price">{{ product.price | money_with_sign }}</span>
+        <span class="product_name">{{ product.name }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>There are no products in this collection yet.  Please check back later.</p>  
+{% endif %}
+
